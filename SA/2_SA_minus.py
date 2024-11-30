@@ -129,7 +129,7 @@ def simulated_annealing(nurses=15, days=7, max_iterations=10000, initial_temp=10
 # 실행
 if __name__ == "__main__":
     periods = [7, 14, 21, 28]
-    cycles = 3
+    cycles = 100
     max_iterations = 10 ** 6
 
     fixed_schedule = None  # 고정 스케줄 초기화

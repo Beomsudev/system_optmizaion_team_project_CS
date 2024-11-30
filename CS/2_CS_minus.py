@@ -120,7 +120,7 @@ def cuckoo_search(n, max_generations, pa, nurses=15, days=7, fixed_schedule=None
 # 실행
 if __name__ == "__main__":
     periods = [7, 14, 21, 28]
-    cycles = 1
+    cycles = 100
     n = 10
     max_generations = 10**6
     pa = 0.0
