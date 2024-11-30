@@ -1,13 +1,17 @@
 # system_optmizaion_team_project_CS
 # 시스템 최적화 팀 프로젝트 - 간호사 스케줄링 문제
+# 시스템 최적화 팀 프로젝트 - 간호사 스케줄링 문제
 
 ## 폴더 트리 구조
+
 ```
 system_optmizaion_team_project_CS
 ├── CS
 │   ├── 1_CS_org.py
 │   ├── 2_CS_minus.py
 │   └── 3_CS_plus.py
+├── Levy
+│   └── Levy_vs_Normal.png
 └── SA
     ├── 1_SA_org.py
     ├── 2_SA_minus.py
@@ -37,11 +41,27 @@ system_optmizaion_team_project_CS
 5. **온도 감소**: 반복마다 온도를 낮추며, 낮은 온도에서는 더 나쁜 해를 수용할 확률이 줄어듭니다.
 6. **반복 종료 조건**: 비용이 0이 되거나 최대 반복 횟수에 도달하면 알고리즘을 종료합니다.
 
+### Levy 비행 설명
+
+- **Levy_vs_Normal.png**: Levy 비행과 일반적인 무작위 탐색의 비교를 시각적으로 보여주는 이미지입니다. Levy 비행이 더 효과적으로 탐색 공간을 커버하는 데 어떻게 도움이 되는지 설명합니다.
+
 ## 논문 출처
+
 - 논문 제목: "Cuckoo search를 이용한 간호사 스케줄링 문제의 효율적인 해결"
 - 저자: 우윤희, 한림대학교 대학원
 - 지도교수: 고영웅
 - 발행연도: 2019
 - 논문 경로: [DBpia 링크](https://www.dbpia.co.kr/journal/detail?nodeId=T15115825)
 - 저작권: 한림대학교 논문은 저작권에 의해 보호받습니다.
+
+## 결과 및 분석
+
+### 결과 테이블
+
+| 조건          | CS              | SA              | CS 완화          | SA 완화          | CS 강화          | SA 강화          |
+|---------------|-----------------|-----------------|------------------|------------------|------------------|------------------|
+|               | Average Time(s) | Average Cost    | Average Time(s)  | Average Cost     | Average Time(s)  | Average Cost     |
+| **1 Week**    | 0.46            | 0               | 0.12             | 0                | 0.18             | 0                |
+|               | 12.97           | 0               | 3.07             | 0                |
+| **2 Weeks**   | 0.82          
 
