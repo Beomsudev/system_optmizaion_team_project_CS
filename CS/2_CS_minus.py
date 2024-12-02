@@ -2,6 +2,7 @@ import numpy as np
 import random
 import copy
 import time
+from scipy.stats import levy
 
 # 비용 함수 (제약 조건 평가)
 def evaluate_schedule_with_cost(schedule, period=7, fixed_schedule=None):
@@ -60,12 +61,17 @@ def generate_initial_schedules(n, nurses=15, days=7):
     return [[[random.choice([0, 1, 2, 3]) for _ in range(days)] for _ in range(nurses)] for _ in range(n)]
 
 # Levy Flight 기반 새 스케줄 생성 (기존 스케줄에서 무작위 변경 적용)
-def levy_flight_schedule(base_schedule, beta=1.2, max_changes=3):
+def levy_flight_schedule(base_schedule, beta=1.5, max_changes_factor=0.3):
     new_schedule = copy.deepcopy(base_schedule)
     nurses = len(base_schedule)
     days = len(base_schedule[0])
 
-    # 무작위로 최대 max_changes만큼 스케줄 변경
+    # Levy 분포를 사용해 max_changes 동적으로 설정
+    levy_sample = levy.rvs(size=1)[0]  # Levy 분포에서 값 샘플링
+    max_changes = int(abs(levy_sample) % int(max_changes_factor * nurses * days)) + 1
+    max_changes = min(max_changes, nurses * days)  # 간호사 * 일 수 제한
+
+    # 무작위로 스케줄 변경 수행
     changes = random.randint(1, max_changes)
     for _ in range(changes):
         nurse_idx = random.randint(0, nurses - 1)
